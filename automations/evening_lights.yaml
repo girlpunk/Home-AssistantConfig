@@ -1,0 +1,30 @@
+- alias: 'Bedroom Evening Lights 1'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 3.5
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_evening_1
+
+- alias: 'Bedroom Evening Lights 2'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 1.5
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_evening_2
+
+- alias: 'Bedroom Evening Lights 3'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -2.5
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_evening_3
+

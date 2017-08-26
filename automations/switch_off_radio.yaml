@@ -1,0 +1,19 @@
+- alias: 'Switch off Radio when leaving for work'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.jacob
+      from: 'home'
+      to: 'not home'
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '09:00:00'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: media_player.media_stop
+      entity_id: media_player.bedroom

@@ -1,0 +1,155 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude:  !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 87
+
+  unit_system: metric
+  temperature_unit: C
+
+  time_zone: Europe/London
+
+script:     !include_dir_named scripts
+automation: !include_dir_merge_list automations
+scene:      !include_dir_merge_list scenes
+
+# View all events in a logbook
+logbook:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Checks for available updates
+updater:
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Discover some devices automatically
+discovery:
+
+# Enables the frontend
+frontend:
+
+sun:
+
+wake_on_lan:
+
+asterisk_ami:
+  host: localhost
+  username: admin
+  password: !secret asterisk_password
+  monitor:
+  - 100
+  - 102
+  - Gamma
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 192.168.42.0/24
+    home_interval: 600
+
+tts:
+  - platform: google
+
+media_player:
+  - platform: sonos
+  - platform: cast
+  - platform: samsungtv
+    host: 192.168.42.50
+#  - platform: samsungtv
+#    host: 192.168.42.47
+
+group:
+  living_room: media_player.living_room, media_player.samsungtv
+  kitchen: media_player.kitchen
+  bedroom: media_player.bedroom
+
+
+sensor:
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  - platform: haveibeenpwned
+    email:
+      - cyberjacob@gmail.com
+      - jacob@jacobmansfield.co.uk
+  - platform: hddtemp
+  - platform: moon
+  - platform: opensky
+    radius: 10
+  - platform: plex
+  - platform: qnap
+    host: 192.168.42.2
+    username: admin
+    password: !secret qnap_password
+    monitored_conditions:
+      - status
+      - cpu_usage
+      - memory_percent_used
+      - network_tx
+      - volume_percentage_used
+  - platform: google_travel_time
+    api_key: !secret google_api_key
+    origin: device_tracker.jacob
+    destination: zone.work
+    options:
+      mode: driving
+      arrival_time: 08:50
+  - platform: pocketcasts
+    username: cyberjacob@gmail.com
+    password: !secret pocketcasts_password
+  - platform: darksky
+    api_key:  !secret darksky_api_key
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - apparent_temperature
+
+binary_sensor:
+  - platform: iss
+    show_on_map: True
+
+camera:
+  - platform: generic
+    name: ISS
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.binary_sensor.iss.attributes.latitude }},{{ states.binary_sensor.iss.attributes.longitude }}&zoom=5&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.binary_sensor.iss.attributes.latitude }},{{ states.binary_sensor.iss.attributes.longitude }}
+    limit_refetch_to_url_change: true
+
+google:
+  client_id:     !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
+
+zone:
+  name: Work
+  latitude:  !secret work_latitude
+  longitude: !secret work_longitude
+  icon: mdi:domain
+
+zone 2:
+  name: Home
+  latitude:  !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+  icon: mdi:home
+
+http:
+  api_password: !secret web_interface_password
+
+influxdb:
+  host: 127.0.0.1
+
+mqtt:
+  broker: 127.0.0.1
+
+tradfri:
+  host:  192.168.42.13
+  api_key: !secret ikea_api_key 

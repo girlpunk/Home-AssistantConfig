@@ -1,0 +1,11 @@
+- alias: 'Morning Greeting'
+  trigger:
+    - platform: time
+      at: '08:30:00'
+  condition:
+    - condition: state
+      entity_id: device_tracker.jacob
+      state: 'home'
+  action:
+    - service: script.jarvis_greeting
+
