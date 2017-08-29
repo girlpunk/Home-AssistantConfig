@@ -1,7 +1,7 @@
 - alias: 'Switch off Radio when leaving for work'
   trigger:
     - platform: state
-      entity_id: device_tracker.jacob
+      entity_id: device_tracker.phone_jacobphone
       from: 'home'
       to: 'not home'
   condition:

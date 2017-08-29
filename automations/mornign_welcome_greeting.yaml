@@ -4,7 +4,7 @@
       at: '08:30:00'
   condition:
     - condition: state
-      entity_id: device_tracker.jacob
+      entity_id: device_tracker.phone_jacobphone
       state: 'home'
   action:
     - service: script.jarvis_greeting

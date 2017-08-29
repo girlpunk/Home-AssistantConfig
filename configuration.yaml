@@ -46,11 +46,6 @@ asterisk_ami:
   - 102
   - Gamma
 
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.42.0/24
-    home_interval: 600
-
 tts:
   - platform: google
 
@@ -95,7 +90,7 @@ sensor:
       - volume_percentage_used
   - platform: google_travel_time
     api_key: !secret google_api_key
-    origin: device_tracker.jacob
+    origin: device_tracker.phone_jacobphone
     destination: zone.work
     options:
       mode: driving
@@ -151,7 +146,12 @@ mqtt:
   broker: 127.0.0.1
   username: hass
   password: !secret mqtt_password
+  port: 1883
 
 tradfri:
   host:  192.168.42.13
   api_key: !secret ikea_api_key 
+
+device_tracker:
+  - platform: owntracks
+
