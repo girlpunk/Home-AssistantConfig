@@ -138,6 +138,8 @@ zone 2:
 
 http:
   api_password: !secret web_interface_password
+  ssl_certificate: /etc/letsencrypt/live/hass.home.jacobmansfield.co.uk/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/hass.home.jacobmansfield.co.uk/privkey.pem
 
 influxdb:
   host: 127.0.0.1
