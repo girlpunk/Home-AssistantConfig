@@ -149,7 +149,7 @@ mqtt:
   port: 1883
 
 tradfri:
-  host:  192.168.42.13
+  host:  192.168.42.51
   api_key: !secret ikea_api_key 
 
 device_tracker:
