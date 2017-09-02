@@ -35,6 +35,8 @@ frontend:
 
 sun:
 
+config:
+
 wake_on_lan:
 
 asterisk_ami:
