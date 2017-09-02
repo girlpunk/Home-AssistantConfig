@@ -3,7 +3,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 3.5
+    below: 4
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_evening_1
@@ -13,7 +13,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 1.5
+    below: 2
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_evening_2
@@ -23,7 +23,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: -2.5
+    below: -2
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_evening_3
