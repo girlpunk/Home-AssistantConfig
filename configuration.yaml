@@ -159,3 +159,6 @@ tradfri:
 device_tracker:
   - platform: owntracks
 
+feedreader:
+  urls:
+    - https://medium.com/feed/@sproggar
