@@ -11,7 +11,7 @@ sequence:
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       volume_level: 0.45
-  - service: tts.google_say
+  - service: tts.amazon_polly_say
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       message: "{{ what }}"
