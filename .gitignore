@@ -23,6 +23,7 @@ tradfri.conf
 *.db-journal
 *.pid
 tts
+feedreader.pickle
 
 # automatically downloaded dependencies
 deps
