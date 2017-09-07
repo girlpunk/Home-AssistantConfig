@@ -45,8 +45,6 @@ asterisk_ami:
   password: !secret asterisk_password
   monitor:
   - 100
-  - 102
-  - Gamma
 
 tts:
   - platform: google
