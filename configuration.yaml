@@ -115,16 +115,6 @@ sensor:
       - daily_summary
       - apparent_temperature
 
-binary_sensor:
-  - platform: iss
-    show_on_map: True
-
-camera:
-  - platform: generic
-    name: ISS
-    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.binary_sensor.iss.attributes.latitude }},{{ states.binary_sensor.iss.attributes.longitude }}&zoom=5&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.binary_sensor.iss.attributes.latitude }},{{ states.binary_sensor.iss.attributes.longitude }}
-    limit_refetch_to_url_change: true
-
 google:
   client_id:     !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
