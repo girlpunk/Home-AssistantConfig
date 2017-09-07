@@ -48,6 +48,12 @@ asterisk_ami:
 
 tts:
   - platform: google
+    language: 'en'
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_key
+    aws_secret_access_key: !secret aws_secret
+    region_name: 'eu-west-1'
+    voice: Amy
 
 media_player:
   - platform: sonos
