@@ -157,3 +157,7 @@ device_tracker:
 feedreader:
   urls:
     - https://medium.com/feed/@sproggar
+
+notify:
+  - name: html5
+    platform: html5
