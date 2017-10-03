@@ -114,6 +114,12 @@ sensor:
       - hourly_summary
       - daily_summary
       - apparent_temperature
+  - platform: octoprint
+    name: OctoPrint
+    monitored_conditions:
+      - Current State
+      - Temperatures
+      - Job Percentage
 
 google:
   client_id:     !secret google_calendar_client_id
@@ -168,4 +174,8 @@ octoprint:
   bed: true
   number_of_tools: 1
 
-
+binary_sensor:
+  - platform: octoprint
+    monitored_conditions:
+      - Printing
+      - Printing Error
