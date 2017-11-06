@@ -179,3 +179,17 @@ binary_sensor:
     monitored_conditions:
       - Printing
       - Printing Error
+
+light:
+  - platform: mqtt
+    name: "Living Room Standing Lamp"
+    state_topic: "stat/livingroom-standing-lamp/POWER"
+    command_topic: "cmnd/livingroom-standing-lamp/POWER"
+    qos: 1
+    retain: true
+  - platform: mqtt
+    name: "Living Room TV Lamp"
+    state_topic: "stat/livingroom-tv-lamp/POWER"
+    command_topic: "cmnd/livingroom-tv-lamp/POWER"
+    qos: 1
+    retain: true
