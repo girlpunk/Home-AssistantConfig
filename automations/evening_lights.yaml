@@ -15,8 +15,10 @@
     value_template: '{{ state.attributes.elevation }}'
     below: 2
   action:
-    service: scene.turn_on
-    entity_id: scene.bedroom_evening_2
+    - service: scene.turn_on
+      entity_id: scene.bedroom_evening_2
+    - service: scene.turn_on
+      entity_id: scene.living_room_evening
 
 - alias: 'Bedroom Evening Lights 3'
   trigger:
@@ -25,6 +27,6 @@
     value_template: '{{ state.attributes.elevation }}'
     below: -2
   action:
-    service: scene.turn_on
-    entity_id: scene.bedroom_evening_3
+    - service: scene.turn_on
+      entity_id: scene.bedroom_evening_3
 
