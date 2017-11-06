@@ -10,6 +10,9 @@ homeassistant:
   temperature_unit: C
 
   time_zone: Europe/London
+  customize:
+    group.living_room_lamps:
+      haaska_name: Living Room Lamps
 
 script:     !include_dir_named scripts
 automation: !include_dir_merge_list automations
@@ -68,7 +71,8 @@ media_player:
     name: TV
 
 group:
-  living_room: media_player.living_room, media_player.samsungtv
+  "living room": media_player.living_room, media_player.samsungtv, light.living_room_standing_lamp, light.living_room_tv_lamp
+  "living room lamps": light.living_room_standing_lamp, light.living_room_tv_lamp
   kitchen: media_player.kitchen
   bedroom: media_player.bedroom
 
