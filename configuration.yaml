@@ -59,9 +59,13 @@ media_player:
   - platform: sonos
   - platform: cast
   - platform: samsungtv
-    host: 192.168.42.50
-#  - platform: samsungtv
-#    host: 192.168.42.47
+    host: 192.168.42.81
+    mac: 50:85:69:0b:b9:6b
+    name: DVR
+  - platform: samsungtv
+    host: 192.168.42.80
+    mac: c4:73:1e:cb:75:8e
+    name: TV
 
 group:
   living_room: media_player.living_room, media_player.samsungtv
