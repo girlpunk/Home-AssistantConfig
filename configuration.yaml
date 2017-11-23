@@ -128,6 +128,24 @@ sensor:
       - Current State
       - Temperatures
       - Job Percentage
+  - platform: whois
+    domain: bluesapphiremedia.co.uk
+  - platform: whois
+    domain: bstabletop.co.uk
+  - platform: whois
+    domain: eventlr.co.uk
+  - platform: whois
+    domain: jacobmansfield.co.uk
+  - platform: whois
+    domain: minisapphire.co.uk
+  - platform: whois
+    domain: shouldiremovetackingstitches.com
+  - platform: whois
+    domain: totallylegitexes.com
+  - platform: whois
+    domain: totallylegitisos.com
+  - platform: whois
+    domain: wheretomulti.com
 
 google:
   client_id:     !secret google_calendar_client_id
