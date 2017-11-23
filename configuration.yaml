@@ -163,7 +163,7 @@ mqtt:
 
 tradfri:
   host:  192.168.42.51
-  api_key: !secret ikea_api_key 
+###  api_key: !secret ikea_api_key 
 
 device_tracker:
   - platform: owntracks
