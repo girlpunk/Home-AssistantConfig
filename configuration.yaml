@@ -201,3 +201,21 @@ light:
     command_topic: "cmnd/livingroom-tv-lamp/POWER"
     qos: 1
     retain: true
+
+switch:
+  - platform: template
+    switches:
+      kitchen_radio:
+        friendly_name: "The Kitchen Radio"
+        entity_id: media_player.kitchen
+        value_template: "{{ is_state('media_player.kitchen', 'playing') and is_state_attr('media_player.kitchen', 'source', 'BBC Radio 2') }}"
+        turn_on:
+          service: media_player.select_source
+          data_template:
+            entity_id: media_player.kitchen
+            source: "BBC Radio 2"
+        turn_off:
+          service: media_player.turn_off
+          data_template:
+            entity_id: media_player.kitchen
+        icon_template: mdi:radio
