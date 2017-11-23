@@ -1,0 +1,61 @@
+sequence:
+  - alias: 1 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_1
+      brightness: 255
+  - alias: 4 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_4
+  - delay: 00:00:01
+  - alias: 2 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_2
+      brightness: 255
+  - alias: 1 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_1
+  - delay: 00:00:01
+  - alias: 3 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_3
+      brightness: 255
+  - alias: 2 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_2
+  - delay: 00:00:01
+  - alias: 6 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_6
+      brightness: 255
+  - alias: 3 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_3
+  - delay: 00:00:01
+  - alias: 5 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_5
+      brightness: 255
+  - alias: 4 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_6
+  - delay: 00:00:01
+  - alias: 6 on
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_4
+      brightness: 255
+  - alias: 5 off
+    service: light.turn_off
+    data:
+      entity_id: light.kitchen_5
+  - delay: 00:00:01
