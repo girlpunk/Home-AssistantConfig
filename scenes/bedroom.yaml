@@ -1,25 +1,25 @@
 - name: Bedroom Evening 1
   entities:
-    light.bedroom:
+    light.jacobs_bedroom:
       state: on
       brightness: 125
 - name: Bedroom Evening 2
   entities:
-    light.bedroom:
+    light.jacobs_bedroom:
       state: on
       brightness: 150
 - name: Bedroom Evening 3
   entities:
-    light.bedroom:
+    light.jacobs_bedroom:
       state: on
       brightness: 175
 - name: Bedroom Night
   entities:
-    light.bedroom:
+    light.jacobs_bedroom:
       state: on
       brightness: 1
 - name: Bedroom Bright
   entities:
-    light.bedroom:
+    light.jacobs_bedroom:
       state: on
       brightness: 255
