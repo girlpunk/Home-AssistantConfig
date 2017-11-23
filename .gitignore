@@ -18,6 +18,7 @@ plex.conf
 pyozw.sqlite
 secrets.yaml
 tradfri.conf
+.tradfri_psk.conf
 
 # Temporary files
 *.db-journal
