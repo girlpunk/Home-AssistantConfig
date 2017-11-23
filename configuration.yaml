@@ -152,8 +152,8 @@ http:
   ssl_key: /etc/letsencrypt/live/hass.home.jacobmansfield.co.uk/privkey.pem
   base_url: !secret hass_url
 
-influxdb:
-  host: 127.0.0.1
+#influxdb:
+#  host: 127.0.0.1
 
 mqtt:
   broker: 127.0.0.1
