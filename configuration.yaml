@@ -187,6 +187,7 @@ mqtt:
   username: hass
   password: !secret mqtt_password
   port: 1883
+  keepalive: 60
 
 tradfri:
   host:  192.168.42.51
