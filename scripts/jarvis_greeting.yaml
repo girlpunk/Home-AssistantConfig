@@ -2,7 +2,7 @@ alias: Jarvis Greeting
 sequence:
   - service: script.sonos_tts
     data_template:
-      where: 'bedroom'
+      where: 'jacobs_bedroom'
       what: >
         {% if now().strftime("%H")|int < 12 %}
         Good morning.

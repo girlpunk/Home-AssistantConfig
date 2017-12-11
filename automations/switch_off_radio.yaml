@@ -16,4 +16,4 @@
       - fri
   action:
     - service: media_player.media_stop
-      entity_id: media_player.bedroom
+      entity_id: media_player.jacobs_bedroom
