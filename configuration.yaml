@@ -229,6 +229,12 @@ light:
     command_topic: "cmnd/livingroom-tv-lamp/POWER"
     qos: 1
     retain: true
+  - platform: mqtt
+    name: "Christmas Tree"
+    state_topic: "stat/sonoff-spare/POWER"
+    command_topic: "cmnd/sonoff-spare/POWER"
+    qos: 1
+    retain: true
 
 switch:
   - platform: template
