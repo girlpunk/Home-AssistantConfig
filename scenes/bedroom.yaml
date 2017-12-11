@@ -1,18 +1,8 @@
-- name: Bedroom Evening 1
+- name: Bedroom Evening
   entities:
     light.jacobs_bedroom:
       state: on
-      brightness: 125
-- name: Bedroom Evening 2
-  entities:
-    light.jacobs_bedroom:
-      state: on
-      brightness: 150
-- name: Bedroom Evening 3
-  entities:
-    light.jacobs_bedroom:
-      state: on
-      brightness: 175
+      profile: relax
 - name: Bedroom Night
   entities:
     light.jacobs_bedroom:
