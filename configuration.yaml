@@ -175,8 +175,8 @@ zone 2:
 
 http:
   api_password: !secret web_interface_password
-  ssl_certificate: /etc/letsencrypt/live/hass.home.jacobmansfield.co.uk/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/hass.home.jacobmansfield.co.uk/privkey.pem
+  ssl_certificate: !secret ssl_cert_path
+  ssl_key: !secret ssl_cert_key
   base_url: !secret hass_url
 
 #influxdb:
