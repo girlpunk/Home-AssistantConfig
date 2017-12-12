@@ -1,0 +1,23 @@
+- alias: 'Sunset Stuff On'
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    to: 'below_horizon'
+    from: 'above_horizon'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.living_room_standing_lamp #TODO: Replace with outside light
+        brightness: 35
+    - delay: '00:{{ (range(1, 20)|random|int) }}:00'
+    - service: script.speech_engine
+      data:
+        call_dark_outside: 1
+    - service: script.monthly_color_scene
+    - wait_template: >-
+      {{ states.group.family.state == 'home' }}
+    - service: light.turn_on:
+      entity_id:
+        - light.living_room_standing_lamp
+        - light.living_room_tv_lamp

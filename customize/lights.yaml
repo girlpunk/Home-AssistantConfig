@@ -1,0 +1,72 @@
+light.bathroom:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.bathroom_light:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.christmas_tree:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.dining_room_light:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.jacobs_bedroom:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.jacobs_bedroom_light:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_1:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_2:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_3:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_4:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_5:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.kitchen_6:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.living_room_standing_lamp:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.living_room_tv_lamp:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.master_bedroom:
+  emulated_hue_hidden: False
+  hidden: False
+  homebridge_hidden: False
+light.master_bedroom_left:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+light.master_bedroom_right:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true

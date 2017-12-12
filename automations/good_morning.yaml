@@ -1,0 +1,30 @@
+- alias: "Good Morning Routine"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.good_morning  #TODO: Create
+      to: 'on'
+      from: 'off'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: home
+    - condition: state
+      entity_id: input_boolean.school_mode #TODO: Create
+      state: 'on'
+    - condition: time
+      after: '06:00:00'
+      before: '10:00:00'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - delay: 00:20:00
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_standing_lamp #TODO: Check what S1 and S4 are for @Ccostan
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.good_morning

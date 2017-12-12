@@ -1,0 +1,27 @@
+device_tracker.amazon_dot:
+  friendly_name: 'Amazon Dot'
+  emulated_hue_hidden: True
+  hidden: True
+  homebridge_hidden: True
+  icon: False
+
+device_tracker.jacob:
+  friendly_name: 'Jacob'
+  emulated_hue_hidden: True
+  hidden: False
+  homebridge_hidden: True
+  icon: False
+
+device_tracker.samsungtv:
+  friendly_name: 'Samsung Tv'
+  emulated_hue_hidden: True
+  hidden: True
+  homebridge_hidden: True
+  icon: False
+
+device_tracker.smart_water_meter:
+  friendly_name: 'Smart Water Meter'
+  emulated_hue_hidden: True
+  hidden: True
+  homebridge_hidden: True
+  icon: False

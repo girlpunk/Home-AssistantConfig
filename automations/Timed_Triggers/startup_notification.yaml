@@ -1,0 +1,9 @@
+- alias: "Startup notification"
+  hide_entity: True
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_engine
+      data_template:
+        value1: "Startup: Home Assistant is up and running"

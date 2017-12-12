@@ -1,0 +1,17 @@
+- alias: "Home Stats"
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'not_home'
+      to: 'home'
+      for: '00:03:00'
+    - platform: state
+      entity_id: input_boolean.home_stats
+      from: 'on'
+      to: 'off'
+  action:
+    - service: script.speech_engine
+      data:
+        call_inside_weather: 1
+        call_outside_weather: 1
+        call_light_check: 1

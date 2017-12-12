@@ -1,0 +1,88 @@
+sensor.asterisk_connection:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+
+sensor.asterisk_extension_100:
+  hidden: true
+  emulated_hue_hidden: true
+  homebridge_hidden: true
+
+sensor.bathroom_motion_sensor:
+  friendly_name: "Bathroom Motion Sensor Battery Level"
+
+sensor.bluesapphiremediacouk:
+  friendly_name: "bluesapphiremedia.co.uk Days to Renewal"
+
+sensor.bstabletopcouk:
+  friendly_name: "bstabletop.co.uk Days to Renewal"
+
+sensor.dark_sky_apparent_temperature:
+  friendly_name: "Outside Temperature"
+  emulated_hue_hidden: false
+  hidden: false
+  homebridge_hidden: true
+  icon: mdi:thermometer
+
+sensor.jacobmansfieldcouk:
+  friendly_name: "jacobmansfield.co.uk Days to Renewal"
+
+sensor.minisapphirecouk:
+  friendly_name: "minisapphire.co.uk Days to Renewal"
+
+sensor.octoprint_actual_bed_temp:
+  friendly_name: "3D Printer Bed Temperature"
+
+sensor.octoprint_actual_tool0_temp:
+  friendly_name: "3D Printer Extruder Temperature"
+
+sensor.octoprint_current_state:
+  friendly_name: "3D Printer State"
+
+sensor.octoprint_job_percentage:
+  friendly_name: "3D Printer Print Percentage"
+
+sensor.octoprint_target_bed_temp:
+  friendly_name: "3D Printer Bed Set Temperature"
+
+sensor.octoprint_target_tool0_temp:
+  friendly_name: "3D Printer Extruder Set Temperature"
+
+sensor.shouldiremovetackingstitchescom:
+    friendly_name: "shouldiremovetackingstitches.com Days to Renewal"
+
+sensor.totallylegitexescom:
+  friendly_name: "totallylegitexes.com Days to Renewal"
+
+sensor.totallylegitisoscom:
+  friendly_name: "totallylegitisos.com Days to Renewal"
+
+sensor.totallylegitisoscom:
+  friendly_name: "totallylegitisos.com Days to Renewal"
+
+
+# sensor.breaches_cyberjacobgmailcom
+# sensor.breaches_jacobjacobmansfieldcouk
+# sensor.dark_sky_daily_summary
+# sensor.dark_sky_hourly_summary
+# sensor.dark_sky_icon
+# sensor.dark_sky_minutely_summary
+# sensor.dark_sky_nearest_storm_distance
+# sensor.dark_sky_summary
+# sensor.dark_sky_summary
+# sensor.google_travel_time__driving
+# sensor.hd_temperature_devsdc
+# sensor.jacobs_bedroom_dimmer
+# sensor.kitchen_remote_control
+# sensor.kitchen_remote_control
+# sensor.moon
+# sensor.opensky
+# sensor.skynetstore1_cpu_usage
+# sensor.skynetstore1_memory_usage
+# sensor.skynetstore1_network_up_eth0
+# sensor.skynetstore1_network_up_eth1
+# sensor.skynetstore1_status
+# sensor.skynetstore1_volume_used_volume_1
+# sensor.speedtest_download
+# sensor.speedtest_ping
+# sensor.speedtest_upload

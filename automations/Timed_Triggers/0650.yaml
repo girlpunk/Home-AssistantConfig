@@ -1,0 +1,27 @@
+- alias: "Lights on in the morning"
+  trigger:
+    - platform: time
+      at: '06:50:00'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: home
+    - condition: state
+      entity_id: input_boolean.school_mode
+      state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      entity_id:
+        - group.kitchen_lights
+    - wait_template: >-
+      {{ states.sun.sun.state == 'above_horizon' }}
+    - service: light.turn_off
+      entity_id:
+        - group.kitchen_lights
