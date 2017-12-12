@@ -15,8 +15,7 @@
       data:
         call_dark_outside: 1
     - service: script.monthly_color_scene
-    - wait_template: >-
-      {{ states.group.family.state == 'home' }}
+    - wait_template: "{{ states.group.family.state == 'home' }}"
     - service: light.turn_on:
       entity_id:
         - light.living_room_standing_lamp
