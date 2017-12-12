@@ -20,8 +20,7 @@
     - service: light.turn_on
       entity_id:
         - group.kitchen_lights
-    - wait_template: >-
-      {{ states.sun.sun.state == 'above_horizon' }}
+    - wait_template: "{{ states.sun.sun.state == 'above_horizon' }}"
     - service: light.turn_off
       entity_id:
         - group.kitchen_lights
