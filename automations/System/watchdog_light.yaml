@@ -8,5 +8,5 @@
   action:
     - service: light.turn_off
       data_template:
-        entity_id: {{trigger.entity_id}}
+        entity_id: "{{trigger.entity_id}}"
       transition: 60
