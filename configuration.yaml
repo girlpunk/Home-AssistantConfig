@@ -14,7 +14,7 @@ homeassistant:
     group.living_room_lamps:
       haaska_name: Living Room Lamps
 
-script:     !include_dir_named scripts
+script:     !include_dir_merge_named scripts
 automation: !include_dir_merge_list automations
 scene:      !include_dir_merge_list scenes
 

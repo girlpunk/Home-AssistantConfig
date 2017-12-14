@@ -1,17 +1,18 @@
-alias: Jarvis Greeting
-sequence:
-  - service: script.sonos_tts
-    data_template:
-      where: 'jacobs_bedroom'
-      what: >
-        {% if now().strftime("%H")|int < 12 %}
-        Good morning.
-        {% elif now().strftime("%H")|int < 18 %}
-        Good afternoon.
-        {% else %}
-        Good evening.
-        {% endif %}
-        Today will be {{states.sensor.dark_sky_apparent_temperature.state}} {{states.sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement}} and {{states.sensor.dark_sky_hourly_summary.state}}
-        {% if now().strftime("%H")|int < 9 and now().strftime("%w")|int > 0and now().strftime("%w")|int < 6 %}
-          The drive time to work is {{states.sensor.google_travel_time__driving.attributes.duration}}.
-        {% endif %}
+jarvis_greeting:
+  alias: Jarvis Greeting
+  sequence:
+    - service: script.sonos_tts
+      data_template:
+        where: 'jacobs_bedroom'
+        what: >
+          {% if now().strftime("%H")|int < 12 %}
+          Good morning.
+          {% elif now().strftime("%H")|int < 18 %}
+          Good afternoon.
+          {% else %}
+          Good evening.
+          {% endif %}
+          Today will be {{states.sensor.dark_sky_apparent_temperature.state}} {{states.sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement}} and {{states.sensor.dark_sky_hourly_summary.state}}
+          {% if now().strftime("%H")|int < 9 and now().strftime("%w")|int > 0and now().strftime("%w")|int < 6 %}
+            The drive time to work is {{states.sensor.google_travel_time__driving.attributes.duration}}.
+          {% endif %}
