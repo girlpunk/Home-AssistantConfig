@@ -12,10 +12,6 @@ homeassistant:
       emulated_hue_hidden: True
       hidden: False
 
-media_player:
-  - platform: floorplan_speaker
-    name: Bedroom Alarm Panel
-
 #---Sensors for Fire Tablet-----------------------------
 
 light:
