@@ -1,3 +1,4 @@
+alias: "Pixelmapping example"
 sequence:
   - alias: 1 on
     service: light.turn_on
