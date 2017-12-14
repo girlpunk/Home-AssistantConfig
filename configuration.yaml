@@ -1,45 +1,136 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude:  !secret home_latitude
   longitude: !secret home_longitude
   elevation: 87
-
   unit_system: metric
-  temperature_unit: C
-
   time_zone: Europe/London
-  customize:
-    group.living_room_lamps:
-      haaska_name: Living Room Lamps
+  customize: !include_dir_merge_named customize
+  customize_domain:
+    automation:
+      initial_state: 'on'
+  customize_glob:
+    "automation.*watchdog*":
+      icon: mdi:timer
+    "sensor.dark_sky_*":
+      homebridge_hidden: true
+    "scene.month_*_colors":
+      hidden: true
+      emulated_hue_hidden: true
+      homebridge_hidden: true
 
-script:     !include_dir_merge_named scripts
-automation: !include_dir_merge_list automations
-scene:      !include_dir_merge_list scenes
+  packages: !include_dir_named packages
 
-# View all events in a logbook
-logbook:
+http:
+  base_url: !secret hass_url
+  api_password: !secret web_interface_password
+  ssl_certificate: !secret ssl_cert_path
+  ssl_key: !secret ssl_cert_key
+  trusted_networks:
+    - 192.168.42.0/24
+    - !secret ipv6_network  # TODO: Add secret
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
 
-# Enables support for tracking state changes over time.
-history:
-
-# Checks for available updates
-updater:
-
-# Allows you to issue voice commands from the frontend
-conversation:
-
-# Discover some devices automatically
-discovery:
-
-# Enables the frontend
 frontend:
+  javascript_version: latest  # TODO: Check what this does
+
+notify:
+  - name: html5
+    platform: html5
+
+discovery:
+  ignore:
+    - samsung_tv
+    - google_cast
+
+updater:
+  include_used_components: true
 
 sun:
 
-config:
+logbook:
+  exclude:
+    entities:
+      - automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+      - automation.cuckoo_clock
+      - binary_sensor.office_motion
+      - group.garage_doors
+      - media_player.LivingRoomCC
+      - py.warnings
+      - sensor.since_last_boot
+      - sensor.since_last_boot_templated
+      - sensor.small_garage_status
+      - sensor.large_garage_status
+      - sensor.small_garage_time_in_state
+      - sensor.large_garage_time_in_state
+      - sensor.large_garage_wifi_signal_strength
+      - sensor.small_garage_wifi_signal_strength
+      - sensor.small_garage_reflection_rate
+      - sensor.large_garage_reflection_rate
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today
+      - sensor.pihole_dns_queries_today
+      - sensor.time
+      - sensor.date
+      - sensor.floorplan_date
+      - sensor.floorplan_time
+      - sensor.ha_uptime
 
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+      - light
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today
+      - sensor.pihole_dns_queries_today
+      - sensor.since_last_boot
+      - sensor.since_last_boot_templated
+      - sensor.floorplan_date
+      - sensor.floorplan_time
+      - sensor.ha_uptime
+      - sensor.time
+
+logger: !include logger.yaml
+recorder: !include recorder.yaml
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  username: hass
+  password: !secret mqtt_password
+
+media_player:
+  - platform: sonos
+  - platform: cast
+  - platform: samsungtv
+    host: 192.168.42.81
+    mac: 50:85:69:0b:b9:6b
+    name: DVR
+  - platform: samsungtv
+    host: 192.168.42.80
+    mac: c4:73:1e:cb:75:8e
+    name: TV
+
+
+group: !include_dir_merge_named group
+device_tracker: !include_dir_merge_list device_tracker
+sensor: !include_dir_merge_list sensor
+automation: !include_dir_merge_list automations
+scene:      !include_dir_merge_list scenes
+script:     !include_dir_merge_named scripts
+input_boolean: !include_dir_merge_named input_boolean
+shell_command: !include_dir_merge_named shell_command
+
+conversation:
+config:
 wake_on_lan:
 
 asterisk_ami:
@@ -58,151 +149,12 @@ tts:
     region_name: 'eu-west-1'
     voice: Amy
 
-media_player:
-  - platform: sonos
-  - platform: cast
-  - platform: samsungtv
-    host: 192.168.42.81
-    mac: 50:85:69:0b:b9:6b
-    name: DVR
-  - platform: samsungtv
-    host: 192.168.42.80
-    mac: c4:73:1e:cb:75:8e
-    name: TV
-
-group:
-  "living room": media_player.living_room, media_player.samsungtv, light.living_room_standing_lamp, light.living_room_tv_lamp
-  "living room lamps": light.living_room_standing_lamp, light.living_room_tv_lamp
-  kitchen: media_player.kitchen
-  bedroom: media_player.bedroom
-
-
-sensor:
-  - platform: speedtest
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-  - platform: haveibeenpwned
-    email:
-      - cyberjacob@gmail.com
-      - jacob@jacobmansfield.co.uk
-  - platform: hddtemp
-  - platform: moon
-  - platform: opensky
-    radius: 10
-  - platform: plex
-  - platform: qnap
-    host: 192.168.42.2
-    username: admin
-    password: !secret qnap_password
-    monitored_conditions:
-      - status
-      - cpu_usage
-      - memory_percent_used
-      - network_tx
-      - volume_percentage_used
-  - platform: google_travel_time
-    api_key: !secret google_api_key
-    origin: device_tracker.phone_jacobphone
-    destination: zone.work
-    options:
-      mode: driving
-      arrival_time: 08:50
-  - platform: pocketcasts
-    username: cyberjacob@gmail.com
-    password: !secret pocketcasts_password
-  - platform: darksky
-    api_key:  !secret darksky_api_key
-    monitored_conditions:
-      - summary
-      - icon
-      - nearest_storm_distance
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
-      - apparent_temperature
-  - platform: octoprint
-    name: OctoPrint
-    monitored_conditions:
-      - Current State
-      - Temperatures
-      - Job Percentage
-  - platform: whois
-    domain: bluesapphiremedia.co.uk
-    name: bluesapphiremedia.co.uk 
-  - platform: whois
-    domain: bstabletop.co.uk
-    name: bstabletop.co.uk
-  - platform: whois
-    domain: eventlr.co.uk
-    name: eventlr.co.uk
-  - platform: whois
-    domain: jacobmansfield.co.uk
-    name: jacobmansfield.co.uk
-  - platform: whois
-    domain: minisapphire.co.uk
-    name: minisapphire.co.uk
-  - platform: whois
-    domain: shouldiremovetackingstitches.com
-    name: shouldiremovetackingstitches.com
-  - platform: whois
-    domain: totallylegitexes.com
-    name: totallylegitexes.com
-  - platform: whois
-    domain: totallylegitisos.com
-    name: totallylegitisos.com
-  - platform: whois
-    domain: wheretomulti.com
-    name: wheretomulti.com
-
-google:
-  client_id:     !secret google_calendar_client_id
-  client_secret: !secret google_calendar_client_secret
-
-zone:
-  name: Work
-  latitude:  !secret work_latitude
-  longitude: !secret work_longitude
-  icon: mdi:domain
-
-zone 2:
-  name: Home
-  latitude:  !secret home_latitude
-  longitude: !secret home_longitude
-  radius: 100
-  icon: mdi:home
-
-http:
-  api_password: !secret web_interface_password
-  ssl_certificate: !secret ssl_cert_path
-  ssl_key: !secret ssl_cert_key
-  base_url: !secret hass_url
-
-#influxdb:
-#  host: 127.0.0.1
-
-mqtt:
-  broker: 127.0.0.1
-  username: hass
-  password: !secret mqtt_password
-  port: 1883
-  keepalive: 60
-
 tradfri:
   host:  192.168.42.51
-###  api_key: !secret ikea_api_key 
-
-device_tracker:
-  - platform: owntracks
 
 feedreader:
   urls:
     - https://medium.com/feed/@sproggar
-
-notify:
-  - name: html5
-    platform: html5
 
 octoprint:
   host: 192.168.42.24
@@ -215,44 +167,6 @@ binary_sensor:
     monitored_conditions:
       - Printing
       - Printing Error
-
-light:
-  - platform: mqtt
-    name: "Living Room Standing Lamp"
-    state_topic: "stat/livingroom-standing-lamp/POWER"
-    command_topic: "cmnd/livingroom-standing-lamp/POWER"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: "Living Room TV Lamp"
-    state_topic: "stat/livingroom-tv-lamp/POWER"
-    command_topic: "cmnd/livingroom-tv-lamp/POWER"
-    qos: 1
-    retain: true
-  - platform: mqtt
-    name: "Christmas Tree"
-    state_topic: "stat/sonoff-spare/POWER"
-    command_topic: "cmnd/sonoff-spare/POWER"
-    qos: 1
-    retain: true
-
-switch:
-  - platform: template
-    switches:
-      kitchen_radio:
-        friendly_name: "The Kitchen Radio"
-        entity_id: media_player.kitchen
-        value_template: "{{ is_state('media_player.kitchen', 'playing') and is_state_attr('media_player.kitchen', 'source', 'BBC Radio 2') }}"
-        turn_on:
-          service: media_player.select_source
-          data_template:
-            entity_id: media_player.kitchen
-            source: "BBC Radio 2"
-        turn_off:
-          service: media_player.turn_off
-          data_template:
-            entity_id: media_player.kitchen
-        icon_template: mdi:radio
 
 google_assistant:
   expose_by_default: true
