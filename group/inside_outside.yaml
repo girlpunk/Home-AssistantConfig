@@ -1,0 +1,15 @@
+Inside_lights:
+  entities:
+    - group.master_bedroom_lights
+    - group.kids_bedroom_lights
+    - group.jacobs_bedroom_lights
+    - group.bathroom_lights
+    - group.hall_lights
+    - group.living_room_lights
+    - group.kitchen_lights
+    - group.dining_room_lights
+
+Outside_lights:
+  entities:
+    - group.front_garden_lights
+    - group.back_garden_lights

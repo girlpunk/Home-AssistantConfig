@@ -1,0 +1,21 @@
+- platform: plex
+- platform: qnap
+  host: 192.168.42.2
+  username: admin
+  password: !secret qnap_password
+  monitored_conditions:
+    - status
+    - cpu_usage
+    - memory_percent_used
+    - network_tx
+    - volume_percentage_used
+- platform: google_travel_time
+  api_key: !secret google_api_key
+  origin: device_tracker.phone_jacobphone
+  destination: zone.work
+  options:
+    mode: driving
+    arrival_time: 08:50
+- platform: pocketcasts
+  username: cyberjacob@gmail.com
+  password: !secret pocketcasts_password

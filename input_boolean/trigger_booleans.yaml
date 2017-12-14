@@ -1,0 +1,7 @@
+good_night:
+  name: Good Night
+  initial: off
+
+good_morning:
+  name: Good Morning
+  initial: off

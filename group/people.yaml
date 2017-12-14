@@ -1,0 +1,4 @@
+Family:
+  entities:
+    - device_tracker.jacob
+    - device_tracker.sasha

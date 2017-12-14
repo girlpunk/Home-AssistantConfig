@@ -1,0 +1,91 @@
+sonos_tts:
+  sequence:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: 'home'
+        - condition: state
+          entity_id: input.bookean.guest_mode
+          state: 'on'
+
+    - service: script.speech_processing
+      data_template:
+        media_player: >-
+          {% if media_player | length == 0 %}
+            {% set media_player = [
+              'media_player.dvr',
+              'media_player.jacobs_bedroom',
+              'media_player.kitchen',
+              'media_player.tv'
+              ] }
+          {% endif %}
+
+          {% if media_player is not string and media_player is sequence %}
+              {% set media_player = media_player|join(', ') %}
+            {% endif %}
+            {{ media_player }}
+        speech_message: >-
+          {%- macro inside_weather() -%}
+            Inside the house, it is {{ states.climate.downstairs.attributes['current_temperature'] }} degrees with around {{ states('sensor.downstairs_thermostat_humidity') }} percent humidity.
+          {%- endmacro -%}
+
+          {%- macro outside_weather() -%}
+            Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
+          {%- endmacro -%}
+
+          {%- macro iss() -%}
+            {% if is_state('binary_sensor.iss', 'on') -%}
+              Here is something interesting. The international space station is above us now. There are {{ states.binary_sensor.iss.attributes['number_of_people_in_space'] }} people in space right now.
+              {{ outside_weather() }}
+            {% endif -%}
+          {%- endmacro -%}
+
+          {%- macro moon() -%}
+            {%- if states.sensor.moon.state == 'Full moon' -%}
+              Check out the full moon tonight!
+            {%- endif -%}
+          {%- endmacro -%}
+
+          {%- macro holiday() -%}
+            {% if states.sensor.holiday.state != '' %}
+              Today is {{ states.sensor.holiday.state }}.
+            {% endif %}
+          {%- endmacro -%}
+
+          {% if call_no_announcement != 1 %}
+            {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
+              Good morning.
+            {% elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 %}
+              Good afternoon.
+            {% else %}
+              Good evening.
+            {% endif %}
+          {% endif %}
+
+          {# Called from Annoucenments #}
+          {{ personarriving }}
+
+          {% if call_inside_weather == 1 %}
+            {{ inside_weather() }}
+          {% endif %}
+
+          {% if call_outside_weather == 1 and is_state('sun.sun', 'above_horizon') %}
+            {{ outside_weather() }}
+          {% endif %}
+
+          {{ DoorOpened }}
+          {{ DoorClosed }}
+
+          {% if value1 is not none %}
+            {{ value1 }}
+          {% endif %}
+
+          {# call a Random fact about the house #}
+          {{ ([iss, pihole, moon]|random)() }}
+
+          {{ holiday() }}
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.home_stats

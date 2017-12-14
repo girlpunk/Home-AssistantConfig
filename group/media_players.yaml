@@ -1,0 +1,6 @@
+media_players:
+  entities:
+    - media_player.dvr
+    - media_player.jacobs_bedroom
+    - media_player.kitchen
+    - media_player.tv
