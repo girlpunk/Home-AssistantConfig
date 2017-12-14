@@ -9,10 +9,6 @@ homeassistant:
       emulated_hue_hidden: False
       hidden: False
 
-media_player:
-  - platform: floorplan_speaker
-    name: Alarm Clock
-
 #---Sensors for Fire Tablet-----------------------------
 
 binary_sensor:
@@ -111,12 +107,12 @@ automation:
       - service: media_player.volume_set
         data_template:
           entity_id:
-            - media_player.alarm_clock
+            - media_player.jacobs_bedroom
           volume_level: 0.3
       - service: media_player.play_media
         data_template:
           entity_id:
-            - media_player.alarm_clock
+            - media_player.jacobs_bedroom
           #media_content_id: "http://listen.181fm.com/181-kickincountry_128k.mp3"
           media_content_id: "http://listen.djcmedia.com:80/americascountryhigh"
           media_content_type: audio/mp4
@@ -135,4 +131,4 @@ automation:
 
     action:
       - service: media_player.media_stop
-        entity_id: media_player.alarm_clock
+        entity_id: media_player.jacobs_bedroom

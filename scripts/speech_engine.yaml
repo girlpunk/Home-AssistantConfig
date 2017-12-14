@@ -1,4 +1,4 @@
-sonos_tts:
+speech_engine:
   sequence:
     - condition: or
       conditions:
@@ -6,7 +6,7 @@ sonos_tts:
           entity_id: group.family
           state: 'home'
         - condition: state
-          entity_id: input.bookean.guest_mode
+          entity_id: input.boolean.guest_mode
           state: 'on'
 
     - service: script.speech_processing
