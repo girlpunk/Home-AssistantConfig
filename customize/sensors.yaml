@@ -57,10 +57,6 @@ sensor.totallylegitexescom:
 sensor.totallylegitisoscom:
   friendly_name: "totallylegitisos.com Days to Renewal"
 
-sensor.totallylegitisoscom:
-  friendly_name: "totallylegitisos.com Days to Renewal"
-
-
 # sensor.breaches_cyberjacobgmailcom
 # sensor.breaches_jacobjacobmansfieldcouk
 # sensor.dark_sky_daily_summary

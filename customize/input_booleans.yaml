@@ -5,13 +5,6 @@ input_boolean.alert_mode:
   homebridge_hidden: True
   icon: mdi:alert-octagram
 
-input_boolean.alert_mode:
-  friendly_name: 'Alert Mode'
-  emulated_hue_hidden: False
-  hidden: False
-  homebridge_hidden: True
-  icon: mdi:alert-octagram
-
 input_boolean.good_morning:
   friendly_name: 'Good Morning'
   emulated_hue_hidden: False

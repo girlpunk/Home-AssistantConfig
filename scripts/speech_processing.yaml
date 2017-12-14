@@ -11,7 +11,7 @@ speech_processing:
           conditions:
             - condition: state
               entity_id: group.family
-            - condition: state:
+            - condition: state
               entity_id: input_boolean.guest_mode
               state: 'on'
         - condition: or
