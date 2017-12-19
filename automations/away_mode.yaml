@@ -1,4 +1,4 @@
-- alias: 'Away Mode'
+- alias: "Away Mode"
   trigger:
     - platform: state
       entity_id: binary_sensor.downstairs_away_mode
@@ -6,7 +6,6 @@
     - platform: state
       entity_id: group.family
       to: 'not_home'
-
   condition:
     - condition: state
       entity_id: group.family
@@ -14,7 +13,6 @@
     - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
-
   action:
     - service: script.interior_off
     - service: switch.turn_off

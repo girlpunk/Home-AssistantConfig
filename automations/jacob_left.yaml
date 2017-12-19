@@ -1,4 +1,4 @@
-- alias: 'Jacob has left the building'
+- alias: "Jacob has left the building"
   trigger:
     - platform: state
       entity_id: device_tracker.Jacob

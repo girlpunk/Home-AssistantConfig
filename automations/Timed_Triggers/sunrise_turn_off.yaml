@@ -1,4 +1,4 @@
-- alias:
+- alias: "Turn things off at sunrise"
   trigger:
     - platform: sun
       event: sunrise

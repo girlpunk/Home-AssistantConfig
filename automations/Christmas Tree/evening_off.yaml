@@ -1,4 +1,4 @@
-- alias: 'Christmas Tree Off Evening'
+- alias: "Christmas Tree Off Evening"
   trigger:
     platform: time
     at: "23:59:59"

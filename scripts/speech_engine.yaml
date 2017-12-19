@@ -18,7 +18,7 @@ speech_engine:
               'media_player.jacobs_bedroom',
               'media_player.kitchen',
               'media_player.tv'
-              ] }
+              ] %}
           {% endif %}
 
           {% if media_player is not string and media_player is sequence %}

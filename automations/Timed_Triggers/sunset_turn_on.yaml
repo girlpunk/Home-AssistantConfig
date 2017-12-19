@@ -1,4 +1,4 @@
-- alias: 'Sunset Stuff On'
+- alias: "Sunset Stuff On"
   trigger:
     platform: state
     entity_id: sun.sun

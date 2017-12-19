@@ -1,4 +1,4 @@
-- alias: 'Morning Greeting'
+- alias: "Morning Greeting"
   trigger:
     - platform: time
       at: '08:30:00'

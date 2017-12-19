@@ -1,4 +1,4 @@
-- alias: 'Christmas Tree On Evening'
+- alias: "Christmas Tree On Evening"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
