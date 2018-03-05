@@ -19,6 +19,8 @@ Living Room Lights:
   entities:
     - light.living_room_standing_lamp
     - light.living_room_tv_lamp
+    - light.living_room_door_light
+    - light.living_room_sofa_light
 
 Kitchen Lights:
   entities:
