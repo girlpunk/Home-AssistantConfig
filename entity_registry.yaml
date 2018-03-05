@@ -1,0 +1,9 @@
+media_player.kitchen:
+  platform: sonos
+  unique_id: RINCON_B8E93738B79001400
+media_player.jacobs_bedroom:
+  platform: sonos
+  unique_id: RINCON_000E5885B92401400
+media_player.jacobs_bedroom_speaker:
+  platform: cast
+  unique_id: 76144383-62d3-7486-d48f-f3ac384c32d6
