@@ -7,3 +7,30 @@ media_player.jacobs_bedroom:
 media_player.jacobs_bedroom_speaker:
   platform: cast
   unique_id: 76144383-62d3-7486-d48f-f3ac384c32d6
+sensor.alarm_type:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.alarm_level:
+  platform: zwave
+  unique_id: 2-72057594077528081
+binary_sensor.sensor:
+  platform: zwave
+  unique_id: 2-72057594076463104
+sensor.aeotec_zw100_multisensor_6_temperature:
+  platform: zwave
+  unique_id: 2-72057594076479506
+sensor.aeotec_zw100_multisensor_6_luminance:
+  platform: zwave
+  unique_id: 2-72057594076479538
+sensor.aeotec_zw100_multisensor_6_relative_humidity:
+  platform: zwave
+  unique_id: 2-72057594076479570
+sensor.aeotec_zw100_multisensor_6_ultraviolet:
+  platform: zwave
+  unique_id: 2-72057594076479922
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  platform: zwave
+  unique_id: 2-72057594077528097
+sensor.aeotec_zw100_multisensor_6_burglar:
+  platform: zwave
+  unique_id: 2-72057594077528225
