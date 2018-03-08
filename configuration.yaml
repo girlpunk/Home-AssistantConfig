@@ -54,6 +54,13 @@ zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_key
 
+zabbix:
+  host: !secret zabbix_host
+  path: /
+  ssl: True
+  username: !secret zabbix_username
+  password: !secret zabbix_password
+
 logbook:
   exclude:
     entities:
