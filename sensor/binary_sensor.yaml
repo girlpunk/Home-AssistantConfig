@@ -1,0 +1,11 @@
+binary_sensor:
+  - platform: template
+    sensors: 
+      YOUR_SENSOR:
+        friendly_name: "Friendly name here"
+        value_template: >-
+          {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
