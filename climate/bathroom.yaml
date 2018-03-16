@@ -1,0 +1,6 @@
+- platform: generic_thermostat
+  name: Bathroom Underfloor Heating
+  heater: light.level
+  target_sensor: sensor.aeotec_zw100_multisensor_6_temperature_2
+  initial_operation_mode: "auto"
+  away_temp: 10
