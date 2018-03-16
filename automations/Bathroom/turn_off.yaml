@@ -1,0 +1,13 @@
+- alias: "Turn off bathroom light"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'off'
+      for:
+        minutes: 1
+  action:
+    - service: light.turn_off
+      entity_id: light.bathroom_light
+      data:
+        transition: 60
+

@@ -1,0 +1,16 @@
+- alias: "Bathroom lights on - Evening"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'on'
+  condition:
+    - condition: time
+      after: '18:00:00'
+      before: '22:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.bathroom_light
+      data:
+        profile: energize
+        transition: 1
+

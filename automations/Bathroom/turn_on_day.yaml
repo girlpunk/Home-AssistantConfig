@@ -1,0 +1,15 @@
+- alias: "Bathroom lights on - Day"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'on'
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '18:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.bathroom_light
+      data:
+        profile: concentrate
+        transition: 1
