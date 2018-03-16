@@ -147,6 +147,7 @@ switch:         !include_dir_merge_list switch
 zone:           !include_dir_merge_list zone
 light:          !include_dir_merge_list light
 climate:        !include_dir_merge_list climate
+binary_sensor:  !include_dir_merge_list binary_sensor
 
 conversation:
 config:
@@ -180,12 +181,6 @@ octoprint:
   api_key: !secret octoprint_api_key
   bed: true
   number_of_tools: 1
-
-binary_sensor:
-  - platform: octoprint
-    monitored_conditions:
-      - Printing
-      - Printing Error
 
 google_assistant:
   expose_by_default: true
