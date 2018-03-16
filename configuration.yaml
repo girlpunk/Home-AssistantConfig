@@ -152,6 +152,7 @@ binary_sensor:  !include_dir_merge_list binary_sensor
 conversation:
 config:
 wake_on_lan:
+map:
 
 asterisk_ami:
   host: localhost
