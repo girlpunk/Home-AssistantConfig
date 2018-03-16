@@ -34,3 +34,45 @@ sensor.aeotec_zw100_multisensor_6_sourcenodeid:
 sensor.aeotec_zw100_multisensor_6_burglar:
   platform: zwave
   unique_id: 2-72057594077528225
+sensor.alarm_type_2:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.alarm_level_2:
+  platform: zwave
+  unique_id: 3-72057594094305297
+binary_sensor.sensor_2:
+  platform: zwave
+  unique_id: 3-72057594093240320
+sensor.aeotec_zw100_multisensor_6_temperature_2:
+  platform: zwave
+  unique_id: 3-72057594093256722
+sensor.aeotec_zw100_multisensor_6_luminance_2:
+  platform: zwave
+  unique_id: 3-72057594093256754
+sensor.aeotec_zw100_multisensor_6_relative_humidity_2:
+  platform: zwave
+  unique_id: 3-72057594093256786
+sensor.aeotec_zw100_multisensor_6_ultraviolet_2:
+  platform: zwave
+  unique_id: 3-72057594093257138
+sensor.aeotec_zw100_multisensor_6_sourcenodeid_2:
+  platform: zwave
+  unique_id: 3-72057594094305313
+sensor.aeotec_zw100_multisensor_6_burglar_2:
+  platform: zwave
+  unique_id: 3-72057594094305441
+light.level:
+  platform: zwave
+  unique_id: 4-72057594109853697
+sensor.alarm_type_3:
+  platform: zwave
+  unique_id: 4-72057594111082497
+sensor.alarm_level_3:
+  platform: zwave
+  unique_id: 4-72057594111082513
+sensor.everspring_ad146_in_wall_dimmer_module_sourcenodeid:
+  platform: zwave
+  unique_id: 4-72057594111082529
+sensor.everspring_ad146_in_wall_dimmer_module_power_management:
+  platform: zwave
+  unique_id: 4-72057594111082673
