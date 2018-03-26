@@ -4,4 +4,3 @@ binary_sensor.iss:
   hidden: False
   homebridge_hidden: True
   icon: mdi:satellite-variant
-
