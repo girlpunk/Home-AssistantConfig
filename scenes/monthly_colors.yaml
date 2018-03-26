@@ -6,13 +6,13 @@
 
 - name: month_standard_colors
   entities:
-       group.outdoor_front_lights:
+       light.outdoor_front_lights:
            state: 'on'
            color_name: 'Gold'
 
 - name: front_full_brightness
   entities:
-     group.outdoor_front_lights:
+     light.outdoor_front_lights:
          state: 'on'
          color_name: 'White'
          brightness: 250
@@ -57,7 +57,7 @@
 
 - name: month_valentine_colors
   entities:
-       group.outdoor_front_lights:
+       light.outdoor_front_lights:
            state: 'on'
            color_name: 'Crimson'
 
@@ -93,14 +93,14 @@
 
 - name: month_st_patty_colors
   entities:
-       group.outdoor_front_lights:
+       light.outdoor_front_lights:
            state: 'on'
            #color_name: 'Dark Spring Green'
            rgb_color: [23,114,69]
 
 - name: month_pi_colors
   entities:
-       group.outdoor_front_lights:
+       light.outdoor_front_lights:
            state: 'on'
            rgb_color: [3,14,159]
 
@@ -270,7 +270,7 @@
 
 - name: month_thanksgiving_colors
   entities:
-       group.outdoor_front_lights:
+       light.outdoor_front_lights:
            state: 'on'
            color_name: 'orange'
 

@@ -10,7 +10,7 @@ group.all_devices:
   hidden: True
   homebridge_hidden: true
 
-group.all_lights:
+light.all_lights:
   friendly_name: 'All Lights'
   emulated_hue_hidden: False
   hidden: True
@@ -21,22 +21,22 @@ group.all_scripts:
   hidden: True
   homebridge_hidden: true
 
-group.bedroom_lights:
+lights.bedroom_lights:
   friendly_name: 'Bedroom Lights'
   emulated_hue_hidden: False
   hidden: False
 
-group.living_room_lamps:
+lights.living_room_lamps:
   friendly_name: 'Living Room Lamps'
   emulated_hue_hidden: False
   hidden: False
 
-group.living_room_lights:
+lights.living_room_lights:
   friendly_name: 'Living Room Lights'
   emulated_hue_hidden: False
   hidden: False
 
-group.dining_room_lights:
+lights.dining_room_lights:
   friendly_name: 'Dining Room Lights'
   emulated_hue_hidden: False
   hidden: False
@@ -54,12 +54,12 @@ group.home_modes:
   homebridge_hidden: true
 
 
-group.interior_lights:
+light.interior_lights:
   friendly_name: 'Interior Lights'
   emulated_hue_hidden: False
   hidden: False
 
-group.kitchen_lights:
+light.kitchen_lights:
   friendly_name: 'Kitchen Lights'
   emulated_hue_hidden: False
   hidden: False
@@ -77,7 +77,7 @@ group.network:
   hidden: False
   homebridge_hidden: true
 
-group.outdoor_front_lights:
+light.outdoor_front_lights:
   friendly_name: 'Outdoor Front Lights'
   emulated_hue_hidden: False
   hidden: False
@@ -88,12 +88,12 @@ group.sensors:
   hidden: False
   homebridge_hidden: true
 
-group.upstairs_lights:
+light.upstairs_lights:
   friendly_name: 'Upstairs Lights'
   emulated_hue_hidden: False
   hidden: False
 
-group.downstairs_lights:
+light.downstairs_lights:
   friendly_name: 'Downstairs Lights'
   emulated_hue_hidden: False
   hidden: False

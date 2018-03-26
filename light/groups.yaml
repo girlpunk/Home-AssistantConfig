@@ -1,0 +1,48 @@
+- platform: group
+  name: Master Bedroom Lights
+  entities:
+    - light.master_bedroom_left
+    - light.master_bedroom_right
+
+#- platform: group
+#  name: Kids' Bedroom Lights
+#  entities:
+
+- platform: group
+  name: Jacob's Bedroom Lights
+  entities:
+    - light.jacobs_bedroom_light
+
+- platform: group
+  name: Bathroom Lights
+  entities:
+    - light.bathroom_light
+
+#- platform: group
+#  name: Hall Lights
+#  entities:
+
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_standing_lamp
+    - light.living_room_tv_lamp
+    - light.living_room_door_light
+    - light.living_room_sofa_light
+
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.kitchen_4
+    - light.kitchen_5
+    - light.kitchen_6
+
+- platform: group
+  name: Dining Room Lights
+  entities:
+    - light.dining_room_light
+
+
