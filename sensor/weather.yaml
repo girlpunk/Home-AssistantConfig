@@ -1,6 +1,8 @@
 - platform: darksky
   api_key:  !secret darksky_api_key
   monitored_conditions:
+    - daily_summary
+    - hourly_summary
     - apparent_temperature
     - cloud_cover
     - humidity
@@ -13,7 +15,10 @@
     - temperature
     - uv_index
     - wind_speed
-
+    - precip_probability
+    - pressure
+    - pressure
+    - wind_bearing
 - platform: moon
 - platform: opensky
   radius: 10
