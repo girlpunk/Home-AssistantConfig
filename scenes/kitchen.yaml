@@ -1,0 +1,72 @@
+- name: kitchen_light_off
+  entities:
+    light.kitchen_1: off
+    light.kitchen_2: off
+    light.kitchen_3: off
+    light.kitchen_4: off
+    light.kitchen_5: off
+    light.kitchen_6: off
+
+- name: kitchen_light_normal
+  entities:
+    light.kitchen_1:
+      state: on
+      profile: energize
+    light.kitchen_2:
+      state: on
+      profile: energize
+    light.kitchen_3:
+      state: on
+      profile: energize
+    light.kitchen_4:
+      state: on
+      profile: energize
+    light.kitchen_5:
+      state: on
+      profile: energize
+    light.kitchen_6:
+      state: on
+      profile: energize
+
+- name: kitchen_light_focus
+  entities:
+    light.kitchen_1:
+      state: on
+      profile: focus
+    light.kitchen_2:
+      state: on
+      profile: focus
+    light.kitchen_3:
+      state: on
+      profile: focus
+    light.kitchen_4:
+      state: on
+      profile: focus
+    light.kitchen_5:
+      state: on
+      profile: focus
+    light.kitchen_6:
+      state: on
+      profile: focus
+
+- name: kitchen_light_relax
+  entities:
+    light.kitchen_1:
+      state: on
+      profile: relax
+    light.kitchen_2:
+      state: on
+      profile: relax
+    light.kitchen_3:
+      state: on
+      profile: relax
+    light.kitchen_4:
+      state: on
+      profile: relax
+    light.kitchen_5:
+      state: on
+      profile: relax
+    light.kitchen_6:
+      state: on
+      profile: relax
+

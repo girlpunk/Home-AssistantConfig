@@ -1,0 +1,36 @@
+- alias: Jacob Bedroom Scene Off
+  trigger:
+    platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: "Turn Off"
+  action:
+    service: scene.turn_on
+    entity_id: scene.jacob_bedroom_off
+
+- alias: Jacob Bedroom Scene Normal
+  trigger:
+    platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Normal
+  action:
+    service: scene.turn_on
+    entity_id: scene.jacob_bedroom_normal
+
+- alias: Jacob Bedroom Scene Relax
+  trigger:
+    platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Relax
+  action:
+    service: scene.turn_on
+    entity_id: scene.jacob_bedroom_relax
+
+- alias: Jacob Bedroom Scene Focus
+  trigger:
+    platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Focus
+  action:
+    service: scene.turn_on
+    entity_id: scene.jacob_bedroom_focus
+

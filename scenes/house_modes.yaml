@@ -1,0 +1,20 @@
+- name: house_mode_morning
+  entities:
+    input_select.house_mode:
+        option: Morning
+
+- name: house_mode_day
+  entities:
+    input_select.house_mode:
+        option: Day
+
+- name: house_mode_evening
+  entities:
+    input_select.house_mode:
+        option: Evening
+
+- name: house_mode_night
+  entities:
+    input_select.house_mode:
+        option: Night
+

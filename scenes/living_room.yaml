@@ -1,0 +1,48 @@
+- name: living_room_light_off
+  entities:
+    light.living_room_door_light: off
+    light.living_room_sofa_light: off
+    light.living_room_standing_lamp: off
+    light.living_room_tv_lamp: off
+    input_select.living_room_scenes:
+        option: Turn Off
+
+- name: living_room_light_normal
+  entities:
+    light.living_room_door_light:
+      state: on
+      profile: energize      
+    light.living_room_sofa_light:
+      state: on
+      profile: energize
+    light.living_room_standing_lamp: off
+    light.living_room_tv_lamp: off
+    input_select.living_room_scenes:
+        option: Normal
+
+- name: living_room_light_focus
+  entities:
+    light.living_room_door_light:
+      state: on
+      profile: reading
+    light.living_room_sofa_light:
+      state: on
+      profile: reading
+    light.living_room_standing_lamp: on
+    light.living_room_tv_lamp: on
+    input_select.living_room_scenes:
+        option: Focus
+
+- name: living_room_light_relax
+  entities:
+    light.living_room_door_light:
+      state: on
+      profile: relax
+    light.living_room_sofa_light:
+      state: on
+      profile: relax
+    light.living_room_standing_lamp: on
+    light.living_room_tv_lamp: on
+    input_select.living_room_scenes:
+        option: Relax
+

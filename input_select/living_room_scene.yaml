@@ -1,0 +1,8 @@
+living_room_scenes:
+  name: Living Room Scene
+  options:
+    - Turn Off
+    - Normal
+    - Focus
+    - Relax
+  icon: mdi:lightbulb

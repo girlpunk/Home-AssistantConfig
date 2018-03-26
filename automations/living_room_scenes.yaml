@@ -1,0 +1,36 @@
+- alias: Living Room Scene Off
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_scene
+    to: "Turn Off"
+  action:
+    service: scene.turn_on
+    entity_id: scene.living_room_off
+
+- alias: Living Room Scene Normal
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_scene
+    to: Normal
+  action:
+    service: scene.turn_on
+    entity_id: scene.living_room_normal
+
+- alias: Living Room Scene Relax
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_scene
+    to: Relax
+  action:
+    service: scene.turn_on
+    entity_id: scene.living_room_relax
+
+- alias: Living Room Scene Focus
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_scene
+    to: Focus
+  action:
+    service: scene.turn_on
+    entity_id: scene.living_room_focus
+

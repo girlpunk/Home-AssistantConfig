@@ -1,0 +1,30 @@
+- name: jacob_bedroom_light_off
+  entities:
+    light.jacobs_bedroom_lights: off
+    input_select.jacob_bedroom_scenes:
+        option: Turn Off
+
+- name: jacob_bedroom_light_normal
+  entities:
+    light.jacobs_bedroom_lights:
+      state: on
+      profile: energize
+    input_select.jacob_bedroom_scenes:
+        option: Normal
+
+- name: jacob_bedroom_light_focus
+  entities:
+    light.jacobs_bedroom_lights:
+      state: on
+      profile: reading
+    input_select.jacob_bedroom_scenes:
+        option: Focus
+
+- name: jacob_bedroom_light_relax
+  entities:
+    light.jacobs_bedroom_lights:
+      state: on
+      profile: relax
+    input_select.jacob_bedroom_scenes:
+        option: Relax
+

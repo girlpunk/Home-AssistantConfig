@@ -1,0 +1,8 @@
+jacob_bedroom_scenes:
+  name: Jacob's Bedroom Scene
+  options:
+    - Turn Off
+    - Normal
+    - Focus
+    - Relax
+  icon: mdi:lightbulb
