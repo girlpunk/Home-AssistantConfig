@@ -1,0 +1,10 @@
+appdaemon:
+  api_key: !secret appdaemon_key
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret hass_browser_url
+      ha_key: !secret web_interface_password
+hadashboard:
+  dash_url: http://192.168.42.3:5050

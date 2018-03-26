@@ -1,0 +1,304 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [122, 94]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+layout:
+    - wide_clock(2x1),                      weather(2x1),                        master_heating,     kids_heating,    jacob_heating,    jacob_presence
+    - house_mode(2x1),                      spacer,         spacer,              livingroom_heating, kitchen_heating, bathroom_heating, sasha_presence
+    - livingroom_off,    livingroom_normal, kitchen_off,    kitchen_normal,      jacob_off,          jacob_normal,    spacer,           spacer
+    - livingroom_focus,  livingroom_relax,  kitchen_focus,  kitchen_relax,       jacob_focus,        jacob_relax,     spacer,           spacer
+    - mode_morning(2x1),                    mode_day(2x1),  mode_evening(2x1),                       mode_night(2x1),                   spacer
+    - kids_room_lights,  bathroom_light,    hall_light,     front_garden_lights, back_garden_lights, porch_light,     all_off,          reload
+
+wide_clock:
+    widget_type: clock
+    date_format_country: gb
+    time_style: "font-size: 200%; color: #fff;"
+    date_style: "font-size: 200%; color: #fff;"
+
+weather:
+    widget_type: weather_summary
+    title_style: "color: #fff;"
+    main_style: "color: #fff;"
+    unit_style: "color: #fff;"
+    sub_style: "color: #fff;"
+    entity: sensor.dark_sky_hourly_summary
+    text_style: "font-size: 300%; margin-top: -50px;"
+    state_text_style: "font-size: 100%;"
+
+bathroom_heating:
+    widget_type: climate
+    title: Bathroom Heating
+    units: "&deg;C"
+    precision: 0
+    entity: climate.bathroom_underfloor_heating
+    level_style: "margin-top: -5px;"
+
+jacob_presence:
+    widget_type: device_tracker
+    title: Jacob
+    device: phone_phone
+    icon_on: fa-male
+    icon_off: fa-male
+    icon_style_active: "font-size: 300%; margin-top: -15px;"
+    icon_style_inactive: "font-size: 300%; margin-top: -15px;"
+
+sasha_presence:
+    widget_type: device_tracker
+    title: Sasha
+    device: sasha
+    icon_off: fa-female
+    icon_on:  fa-female
+    icon_style_active: "font-size: 300%; margin-top: -15px;"
+    icon_style_inactive: "font-size: 300%; margin-top: -15px;"
+
+house_mode:
+    widget_type: sensor
+    text_style: "text-transform: uppercase;font-size: 300%"
+    title: House Mode
+    entity: input_select.house_mode
+
+livingroom_off:
+    widget_type: mode
+    entity: input_select.living_room_scenes
+    title: "Turn Off"
+    icon_on: mdi-sofa
+    icon_off: mdi-sofa
+    mode: "Turn Off"
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.living_room_light_off
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+livingroom_relax:
+    widget_type: mode
+    entity: input_select.living_room_scenes
+    title: "Relax"
+    icon_on: mdi-sofa
+    icon_off: mdi-sofa
+    mode: "Relax"
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.living_room_light_relax
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+livingroom_focus:
+    widget_type: mode
+    entity: input_select.living_room_scenes
+    title: "Focus"
+    icon_on: mdi-sofa
+    icon_off: mdi-sofa
+    mode: "Focus"
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.living_room_light_focus
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+livingroom_normal:
+    widget_type: mode
+    entity: input_select.living_room_scenes
+    title: "Normal"
+    icon_on: mdi-sofa
+    icon_off: mdi-sofa
+    mode: "Normal"
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.living_room_light_normal
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+kitchen_off:
+    widget_type: scene
+    entity: scene.kitchen_light_off
+    title: Turn Off
+    icon_on: mdi-stove
+    icon_off: mdi-stove
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+kitchen_relax:
+    widget_type: scene
+    entity: scene.kitchen_light_relax
+    title: Relax
+    icon_on: mdi-stove
+    icon_off: mdi-stove
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+kitchen_focus:
+    widget_type: scene
+    entity: scene.kitchen_light_focus
+    title: Focus
+    icon_on: mdi-stove
+    icon_off: mdi-stove
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+kitchen_normal:
+    widget_type: scene
+    entity: scene.kitchen_light_normal
+    title: Normal
+    icon_on: mdi-stove
+    icon_off: mdi-stove
+    icon_style_active: "margin-top: -15px;"
+    icon_style_inactive: "margin-top: -15px;"
+
+jacob_off:
+    widget_type: mode
+    entity: input_select.jacob_bedroom_scenes
+    title: "Turn Off"
+    title2: Jacob's Room
+    icon_on: fa-bed
+    icon_off: fa-bed
+    mode: "Turn Off"
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.jacob_bedroom_light_off
+
+jacob_relax:
+    widget_type: mode
+    entity: input_select.jacob_bedroom_scenes
+    title: Relax
+    title2: Jacob's Room
+    mode: "Relax"
+    icon_on: fa-bed
+    icon_off: fa-bed
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.jacob_bedroom_light_relax
+
+jacob_focus:
+    widget_type: mode
+    entity: input_select.jacob_bedroom_scenes
+    title: Focus
+    title2: Jacob's Room
+    mode: "Focus"
+    icon_on: fa-bed
+    icon_off: fa-bed
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.jacob_bedroom_light_focus
+
+jacob_normal:
+    widget_type: mode
+    entity: input_select.jacob_bedroom_scenes
+    title: Normal
+    title2: Jacob's Room
+    mode: "Normal"
+    icon_on: fa-bed
+    icon_off: fa-bed
+    post_service_active:
+       service: scene/turn_on
+       entity_id: scene.jacob_bedroom_light_normal
+
+mode_morning:
+    widget_type: mode
+    entity: input_select.house_mode
+    title: Morning
+    mode: Morning
+    icon_on: fa-coffee
+    icon_off: fa-coffee
+    post_service_active:
+        service: scene/turn_on
+        entity_id: scene.house_mode_morning
+    icon_style_active: "margin-top: -10px;"
+    icon_style_inactive: "margin-top: -10px;"
+
+mode_day:
+    widget_type: mode
+    entity: input_select.house_mode
+    title: Day
+    mode: Day
+    icon_on: fa-sun
+    icon_off: fa-sun
+    post_service_active:
+        service: scene/turn_on
+        entity_id: scene.house_mode_day
+    icon_style_active: "margin-top: -10px;"
+    icon_style_inactive: "margin-top: -10px;"
+
+mode_evening:
+    widget_type: mode
+    entity: input_select.house_mode
+    title: Evening
+    mode: Evening
+    icon_on: fa-moon
+    icon_off: fa-moon
+    post_service_active:
+        service: scene/turn_on
+        entity_id: scene.house_mode_evening
+    icon_style_active: "margin-top: -10px;"
+    icon_style_inactive: "margin-top: -10px;"
+
+mode_night:
+    widget_type: mode
+    entity: input_select.house_mode
+    title: Night
+    mode: Night
+    icon_on: fa-star
+    icon_off: fa-star
+    post_service_active:
+        service: scene/turn_on
+        entity_id: scene.house_mode_night
+    icon_style_active: "margin-top: -10px;"
+    icon_style_inactive: "margin-top: -10px;"
+
+reload:
+    widget_type: reload
+    title: Refresh
+    icon_active: fa-sync
+    icon_inactive: fa-sync
+    icon_active_style: "margin-top: -10px;"
+    icon_inactive_style: "margin-top: -10px;"
+
+bathroom_light:
+    widget_type: light
+    icon_on: fa-bath
+    icon_off: fa-bath
+    icon_style_active: "margin-top: -25px;"
+    icon_style_inactive: "margin-top: -25px;"
+    entity: light.bathroom_lights
+
+all_off:
+    title: "All Off"
+    icon: "far fa-lightbulb"
+    widget_type: binary_sensor
+    icon_style: "margin-top: -10px;"
+    entity: binary_sensor.all_lights_off
+
+master_heating:
+    widget_type: spacer
+kids_heating:
+    widget_type: spacer
+jacob_heating:
+    widget_type: spacer
+sasha_presence:
+    widget_type: spacer
+livingroom_heating:
+    widget_type: spacer
+kitchen_heating:
+    widget_type: spacer
+kids_room_lights:
+    widget_type: spacer
+hall_light:
+    widget_type: spacer
+front_garden_lights:
+    widget_type: spacer
+back_garden_lights:
+    widget_type: spacer
+porch_light:
+    widget_type: spacer
