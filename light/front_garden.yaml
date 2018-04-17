@@ -1,9 +1,11 @@
 - platform: mqtt_json
   name: "Front Garden Lights"
-  state_topic: "home/McLighting01_ha/state/out"
-  command_topic: "home/McLighting01_ha/state/in"
+  state_topic: "home/front_garden_lights/state/out"
+  command_topic: "home/front_garden_lights/state/in"
+  on_command_type: 'first'
   effect: true
   effect_list:
+      - "Static"
       - "Blink"
       - "Breath"
       - "Color Wipe"
@@ -60,6 +62,7 @@
       - "Tricolor Chase"
       - "ICU"
   brightness: true
+  color_temp: true
   rgb: true
   optimistic: false
   qos: 0

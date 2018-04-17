@@ -1,0 +1,6 @@
+front_garden_light_animation_speed:
+  name: Front Garden Lights Animation Speed
+  initial: 200
+  min: 0
+  max: 255
+  step: 5

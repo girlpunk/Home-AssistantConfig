@@ -1,0 +1,9 @@
+- alias: Front Garden Lights Animation Speed Receive
+  trigger:
+  - platform: mqtt
+    topic: home/front_garden_lights/state/out
+  action:
+  - data_template:
+      entity_id: input_number.front_garden_lights_animation_speed
+      value: '{{ trigger.payload_json.speed | int }}'
+      service: input_number.set_value

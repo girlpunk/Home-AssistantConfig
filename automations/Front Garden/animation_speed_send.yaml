@@ -1,0 +1,12 @@
+- alias: Front Garden Lights Animation Speed Send
+    initial_state: true
+    hide_entity: true
+    trigger:
+    - entity_id: input_number.front_garden_lights_animation_speed
+      platform: state
+    action:
+    - data_template:
+        payload_template: '{"speed": {{ trigger.to_state.state | int }}}'
+        retain: true
+        topic: home/front_garden_lights/state/in
+        service: mqtt.publish
