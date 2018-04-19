@@ -6,7 +6,7 @@
     platform: state
   action:
   - data_template:
-    payload_template: '{"speed": {{ trigger.to_state.state | int }}}'
-    retain: true
-    topic: home/front_garden_lights/state/in
-  service: mqtt.publish
+      payload_template: '{"speed": {{ trigger.to_state.state | int }}}'
+      retain: true
+      topic: home/front_garden_lights/state/in
+    service: mqtt.publish
