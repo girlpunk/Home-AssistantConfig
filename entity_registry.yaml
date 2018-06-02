@@ -1,78 +1,196 @@
 media_player.kitchen:
+  name:
   platform: sonos
   unique_id: RINCON_B8E93738B79001400
 media_player.jacobs_bedroom:
+  name:
   platform: sonos
   unique_id: RINCON_000E5885B92401400
 media_player.jacobs_bedroom_speaker:
+  name:
   platform: cast
   unique_id: 76144383-62d3-7486-d48f-f3ac384c32d6
 sensor.alarm_type:
+  name:
   platform: zwave
   unique_id: 2-72057594077528065
 sensor.alarm_level:
+  name:
   platform: zwave
   unique_id: 2-72057594077528081
 binary_sensor.sensor:
+  name:
   platform: zwave
   unique_id: 2-72057594076463104
 sensor.aeotec_zw100_multisensor_6_temperature:
+  name:
   platform: zwave
   unique_id: 2-72057594076479506
 sensor.aeotec_zw100_multisensor_6_luminance:
+  name:
   platform: zwave
   unique_id: 2-72057594076479538
 sensor.aeotec_zw100_multisensor_6_relative_humidity:
+  name:
   platform: zwave
   unique_id: 2-72057594076479570
 sensor.aeotec_zw100_multisensor_6_ultraviolet:
+  name:
   platform: zwave
   unique_id: 2-72057594076479922
 sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 2-72057594077528097
 sensor.aeotec_zw100_multisensor_6_burglar:
+  name:
   platform: zwave
   unique_id: 2-72057594077528225
 sensor.alarm_type_2:
+  name:
   platform: zwave
   unique_id: 3-72057594094305281
 sensor.alarm_level_2:
+  name:
   platform: zwave
   unique_id: 3-72057594094305297
 binary_sensor.sensor_2:
+  name:
   platform: zwave
   unique_id: 3-72057594093240320
 sensor.aeotec_zw100_multisensor_6_temperature_2:
+  name:
   platform: zwave
   unique_id: 3-72057594093256722
 sensor.aeotec_zw100_multisensor_6_luminance_2:
+  name:
   platform: zwave
   unique_id: 3-72057594093256754
 sensor.aeotec_zw100_multisensor_6_relative_humidity_2:
+  name:
   platform: zwave
   unique_id: 3-72057594093256786
 sensor.aeotec_zw100_multisensor_6_ultraviolet_2:
+  name:
   platform: zwave
   unique_id: 3-72057594093257138
 sensor.aeotec_zw100_multisensor_6_sourcenodeid_2:
+  name:
   platform: zwave
   unique_id: 3-72057594094305313
 sensor.aeotec_zw100_multisensor_6_burglar_2:
+  name:
   platform: zwave
   unique_id: 3-72057594094305441
 light.level:
+  name:
   platform: zwave
   unique_id: 4-72057594109853697
 sensor.alarm_type_3:
+  name:
   platform: zwave
   unique_id: 4-72057594111082497
 sensor.alarm_level_3:
+  name:
   platform: zwave
   unique_id: 4-72057594111082513
 sensor.everspring_ad146_in_wall_dimmer_module_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 4-72057594111082529
 sensor.everspring_ad146_in_wall_dimmer_module_power_management:
+  name:
   platform: zwave
   unique_id: 4-72057594111082673
+light.kitchen_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65553
+light.living_room_door_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65562
+light.kitchen_4:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65558
+light.master_bedroom_right:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65540
+light.kitchen_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65554
+light.master_bedroom_left:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65539
+light.kitchen_5:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65556
+light.living_room_sofa_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65561
+light.kitchen_1:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65555
+light.jacobs_bedroom_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65537
+light.kitchen_6:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65557
+light.bathroom_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65543
+light.dining_room_light:
+  name:
+  platform: tradfri
+  unique_id: light-7e11515205000063-65544
+light.bathroom:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174729
+light.master_bedroom:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174727
+light.tradfri_group_6:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174731
+light.living_room:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174730
+light.jacobs_bedroom:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174726
+light.kitchen:
+  name:
+  platform: tradfri
+  unique_id: group-7e11515205000063-174728
+zwave.zwaveme_zme_uzb1_usb_stick:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.bathroom_multisensor:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.bathroom_underfloor_heating:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.hank_hkzwscn04_scene_controller:
+  name:
+  platform: zwave
+  unique_id: node-6
