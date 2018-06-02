@@ -1,56 +1,56 @@
 - alias: Jacob Bedroom Scene Off
   trigger:
-#  - platform: state
-#    entity_id: input_select.jacob_bedroom_scene
-#    to: "Turn Off"
-    platform: event
+  - platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: "Turn Off"
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 4
   action:
     service: scene.turn_on
-    entity_id: scene.jacob_bedroom_off
+    entity_id: scene.jacob_bedroom_light_off
 
 - alias: Jacob Bedroom Scene Normal
   trigger:
-#  - platform: state
-#    entity_id: input_select.jacob_bedroom_scene
-#    to: Normal
-    platform: event
+  - platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Normal
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 3
   action:
     service: scene.turn_on
-    entity_id: scene.jacob_bedroom_normal
+    entity_id: scene.jacob_bedroom_light_normal
 
 - alias: Jacob Bedroom Scene Relax
   trigger:
-#  - platform: state
-#    entity_id: input_select.jacob_bedroom_scene
-#    to: Relax
-    platform: event
+  - platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Relax
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 1
   action:
     service: scene.turn_on
-    entity_id: scene.jacob_bedroom_relax
+    entity_id: scene.jacob_bedroom_light_relax
 
 - alias: Jacob Bedroom Scene Focus
   trigger:
-#  - platform: state
-#    entity_id: input_select.jacob_bedroom_scene
-#    to: Focus
-    platform: event
+  - platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Focus
+  - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 2
   action:
     service: scene.turn_on
-    entity_id: scene.jacob_bedroom_focus
+    entity_id: scene.jacob_bedroom_light_focus
 
