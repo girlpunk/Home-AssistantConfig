@@ -1,0 +1,15 @@
+- platform: command_line
+  command: !secret refuse_script_path   # Command line contains address. Full script at https://github.com/cyberjacob/HertsCouncilBinParser
+  name: Refuse Collection
+  scan_interval: 3600
+
+- platform: command_line
+  command: !secret recycling_script_path   # Command line contains address. Full script at https://github.com/cyberjacob/HertsCouncilBinParser
+  name: Recycling Collection
+  scan_interval: 3600
+
+- platform: command_line
+  command: !secret organic_script_path   # Command line contains address. Full script at https://github.com/cyberjacob/HertsCouncilBinParser
+  name: Organic Collection
+  scan_interval: 3600
+

@@ -1,0 +1,3 @@
+[submodule "HertsCouncilBinParser"]
+	path = HertsCouncilBinParser
+	url = https://github.com/cyberjacob/HertsCouncilBinParser.git
