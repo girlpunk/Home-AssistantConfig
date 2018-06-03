@@ -14,12 +14,12 @@ global_parameters:
       media_player:
         step: 5
 layout:
-    - wide_clock(2x1),                      weather(2x1),                        master_heating,     kids_heating,    jacob_heating,    jacob_presence
-    - house_mode(2x1),                      spacer,         spacer,              livingroom_heating, kitchen_heating, bathroom_heating, sasha_presence
-    - livingroom_off,    livingroom_normal, kitchen_off,    kitchen_normal,      jacob_off,          jacob_normal,    spacer,           spacer
-    - livingroom_focus,  livingroom_relax,  kitchen_focus,  kitchen_relax,       jacob_focus,        jacob_relax,     spacer,           spacer
-    - mode_morning(2x1),                    mode_day(2x1),  mode_evening(2x1),                       mode_night(2x1),                   spacer
-    - kids_room_lights,  bathroom_light,    hall_light,     front_garden_lights, back_garden_lights, porch_light,     all_off,          reload
+    - wide_clock(2x1),                      weather(2x1),                            master_heating,     kids_heating,    jacob_heating,    jacob_presence
+    - house_mode(2x1),                      refuse_collection, recycling_collection, livingroom_heating, kitchen_heating, bathroom_heating, sasha_presence
+    - livingroom_off,    livingroom_normal, kitchen_off,       kitchen_normal,       jacob_off,          jacob_normal,    spacer,           spacer
+    - livingroom_focus,  livingroom_relax,  kitchen_focus,     kitchen_relax,        jacob_focus,        jacob_relax,     spacer,           spacer
+    - mode_morning(2x1),                    mode_day(2x1),     mode_evening(2x1),                        mode_night(2x1),                   spacer
+    - kids_room_lights,  bathroom_light,    hall_light,        front_garden_lights,  back_garden_lights, porch_light,     all_off,          reload
 
 wide_clock:
     widget_type: clock
@@ -302,3 +302,36 @@ back_garden_lights:
     widget_type: spacer
 porch_light:
     widget_type: spacer
+
+refuse_collection:
+    widget_type: icon
+    title: Black Bin Collection
+    entity: sensor.refuse_collection
+    icons:
+        "Today":
+            icon: "far fa-trash"
+            style: "color: green;"
+        "Tomorrow":
+            icon: "far fa-trash"
+            style: "color: orange;"
+        "default":
+            icon: "far fa-trash"
+            style: "color: grey;"
+    state_text: 1
+
+recycling_collection:
+    widget_type: icon
+    title: Recycling Collection
+    entity: sensor.recycling_collection
+    icons:
+        "Today":
+            icon: "far fa-recycle"
+            style: "color: green;"
+        "Tomorrow":
+            icon: "far fa-recycle"
+            style: "color: orange;"
+        "default":
+            icon: "far fa-recycle"
+            style: "color: grey;"
+    state_text: 1
+
