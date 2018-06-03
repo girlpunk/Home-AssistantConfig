@@ -36,7 +36,7 @@
   - platform: state
     entity_id: input_select.house_mode
     to: Night
-  - platform: night
+  - platform: time
     at: '23:00:00'
   action:
     service: scene.turn_on
