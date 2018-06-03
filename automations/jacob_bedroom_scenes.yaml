@@ -1,56 +1,389 @@
+# Change mode when input_select is set
 - alias: Jacob Bedroom Scene Off
   trigger:
   - platform: state
     entity_id: input_select.jacob_bedroom_scene
     to: "Turn Off"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.jacob_bedroom_light_off
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Turn Off
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Change mode when input_select is set
+- alias: Jacob Bedroom Scene Normal
+  trigger:
+  - platform: state
+    entity_id: input_select.jacob_bedroom_scene
+    to: Normal
+  action:
+  - service: scene.turn_on
+    entity_id: scene.jacob_bedroom_light_normal
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Normal
+
+# Change mode when override button pressed
+- alias: Jacob Bedroom Scene Normal override
+  trigger:
   - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 4
   action:
-    service: scene.turn_on
-    entity_id: scene.jacob_bedroom_light_off
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Normal
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
 
-- alias: Jacob Bedroom Scene Normal
-  trigger:
-  - platform: state
-    entity_id: input_select.jacob_bedroom_scene
-    to: Normal
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.hank_hkzwscn04_scene_controller
-      scene_id: 3
-  action:
-    service: scene.turn_on
-    entity_id: scene.jacob_bedroom_light_normal
-
+# Change mode when input_select is set
 - alias: Jacob Bedroom Scene Relax
   trigger:
   - platform: state
     entity_id: input_select.jacob_bedroom_scene
     to: Relax
+  action:
+  - service: scene.turn_on
+    entity_id: scene.jacob_bedroom_light_relax
+
+# Change mode when override button pressed
+- alias: Jacob Bedroom Scene Relax override
+  trigger:
   - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 1
   action:
-    service: scene.turn_on
-    entity_id: scene.jacob_bedroom_light_relax
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Relax
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
 
+# Change mode when input_select is set
 - alias: Jacob Bedroom Scene Focus
   trigger:
   - platform: state
     entity_id: input_select.jacob_bedroom_scene
     to: Focus
+  action:
+  - service: scene.turn_on
+    entity_id: scene.jacob_bedroom_light_focus
+
+# Change mode when override button pressed
+- alias: Jacob Bedroom Scene Focus override
+  trigger:
   - platform: event
     event_type: zwave.scene_activated
     event_data:
       entity_id: zwave.hank_hkzwscn04_scene_controller
       scene_id: 2
   action:
-    service: scene.turn_on
-    entity_id: scene.jacob_bedroom_light_focus
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Focus
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn on to normal when Default button pressed and in day mode and not already normal
+- alias: Jacob Bedroom Scene Default Normal On
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: state
+    entity_id: 'input_select.house_mode'
+    state: 'Day'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Turn Off'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Normal
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn off when Default button pressed and in day mode and already normal
+- alias: Jacob Bedroom Scene Default Normal Off
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: state
+    entity_id: 'input_select.house_mode'
+    state: 'Day'
+  - condition: state
+    entity_id: 'input_select.jacob_bedroom_scene'
+    state: 'Normal'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Turn Off
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn on to focus when Default button pressed and in morning mode and not already focus
+- alias: Jacob Bedroom Scene Default Focus On
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: state
+    entity_id: 'input_select.house_mode'
+    state: 'Morning'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Turn Off'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Focus
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn off when Default button pressed and in morning mode and already focus
+- alias: Jacob Bedroom Scene Default Focus Off
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: state
+    entity_id: 'input_select.house_mode'
+    state: 'Morning'
+  - condition: state
+    entity_id: 'input_select.jacob_bedroom_scene'
+    state: 'Focus'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Turn Off
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn on to relax when Default button pressed and in evening/night mode and not already relax
+- alias: Jacob Bedroom Scene Default Relax On
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.house_mode'
+      state: 'Evening'
+    - condition: state
+      entity_id: 'input_select.house_mode'
+      state: 'Night'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Turn Off'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Relax
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# Turn off when Default button pressed and in evening/night mode and already relax
+- alias: Jacob Bedroom Scene Default Relax Off
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_hkzwscn04_scene_controller
+      scene_id: 4
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.house_mode'
+      state: 'Evening'
+    - condition: state
+      entity_id: 'input_select.house_mode'
+      state: 'Night'
+  - condition: state
+    entity_id: 'input_select.jacob_bedroom_scene'
+    state: 'Relax'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Turn Off
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.jacob_bedroom_override
+
+# change mode in morning if already on
+- alias: Jacob Bedroom Scene Morning Update
+  trigger:
+  - platform: state
+    entity_id: input_select.house_mode
+    to: "Morning"
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  - condition: state
+    entity_id: input_boolean.jacob_bedroom_override
+    state: 'Off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Focus
+
+# change mode in Day if already on
+- alias: Jacob Bedroom Scene Day Update
+  trigger:
+  - platform: state
+    entity_id: input_select.house_mode
+    to: "Day"
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  - condition: state
+    entity_id: input_boolean.jacob_bedroom_override
+    state: 'Off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Normal
+
+# change mode in Evening if already on
+- alias: Jacob Bedroom Scene Evening Update
+  trigger:
+  - platform: state
+    entity_id: input_select.house_mode
+    to: "Evening"
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  - condition: state
+    entity_id: input_boolean.jacob_bedroom_override
+    state: 'Off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Relax
+
+# change mode in night if already on
+- alias: Jacob Bedroom Scene Night Update
+  trigger:
+  - platform: state
+    entity_id: input_select.house_mode
+    to: "Night"
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Normal'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Focus'
+    - condition: state
+      entity_id: 'input_select.jacob_bedroom_scene'
+      state: 'Relax'
+  - condition: state
+    entity_id: input_boolean.jacob_bedroom_override
+    state: 'Off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.jacob_bedroom_scene
+      option: Relax
+
 

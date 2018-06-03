@@ -1,35 +1,43 @@
 - alias: House Mode morning
   trigger:
-    platform: state
+  - platform: state
     entity_id: input_select.house_mode
     to: Morning
+  - platform: time
+    at: '06:45:00'
   action:
     service: scene.turn_on
     entity_id: scene.house_mode_morning
 
 - alias: House Mode Day
   trigger:
-    platform: state
+  - platform: state
     entity_id: input_select.house_mode
     to: Day
+  - platform: time
+    at: '09:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.house_mode_day
 
 - alias: House Mode Evening
   trigger:
-    platform: state
+  - platform: state
     entity_id: input_select.house_mode
     to: Evening
+  - platform: time
+    at: '19:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.house_mode_evening
 
 - alias: House Mode Night
   trigger:
-    platform: state
+  - platform: state
     entity_id: input_select.house_mode
     to: Night
+  - platform: night
+    at: '23:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.house_mode_night
