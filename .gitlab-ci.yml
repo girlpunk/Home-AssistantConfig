@@ -1,0 +1,23 @@
+image: python:3.6
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+
+test:
+  before_script:
+  - pip install homeassistant
+  - touch /tmp/ssl_cert
+  - mv travis_secrets.yaml secrets.yaml
+  script:
+  - hass -c . --script check_config
